@@ -1,0 +1,80 @@
+{% extends 'partials/base.html'%}
+{% load static%}
+{% block title %} UndergradSpace || allreport {% endblock %}
+{% load crispy_forms_tags %}
+{% block content%}
+
+    
+    <div class="d-flex justify-content-center" style="height: 20vh;">
+            <form class="col-12 col-md-8 col-lg-5 my-auto">
+                <span class="m-1 disabled text-dark">Search to filter by name:</span>
+                <input class="form-control me-2" type="search" id="myInput" onkeyup="myFunction()" placeholder="Search for title.." aria-label="Search">
+            </form>                
+    </div>
+    <div class="main-content container m-3" style="height: auto;">
+        <div class="col-lg-10 col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header card-header-text ">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title">All reports ({{total_reports}})</h4>
+                        <a href="{% url 'upload-page'%}"><i class="bi bi-folder-plus h4 mx-2"></i>Upload report</a>
+                    </div>     
+                </div>
+                <div class="card-content">
+                    <div class="streamline" id="myUL">
+                        {% for report in reports %}
+                        <div class="sl-item sl-primary">
+                            <div class="sl-content border border-black rounded p-2">
+                                <small class="text-muted">{{report.date}}</small>
+                                <p class="d-flex justify-content-between">
+                                    <a class="aText" href="#">{{report.title}}</a>
+                                    <span>
+                                        <a class="text-info mx-2" href="{% url 'edit-page' report.pk %}">edit</a>
+                                        <a href="{{ report.pdf.url }}" target="_blank"><i class="bi bi-box-arrow-in-down h4 mx-2"></i></a>
+                                        <a class="" href="{% url 'delete-page' report.pk %}"><i class="bi bi-trash h4 text-danger mx-2"></i> </a>   
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer-->        
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <nav class="d-flex">
+                        <ul class="m-0 p-0">
+                            <li>
+                                <a href="#">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    UG UndergradSpace
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                
+                </div>
+                <div class="col-md-6">
+                    <p class="copyright d-flex justify-content-end"> &copy 2021 Design by
+                        <a href="# mx-2">De-General Moz</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+{%endblock%}

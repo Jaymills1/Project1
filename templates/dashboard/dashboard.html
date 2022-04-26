@@ -1,0 +1,119 @@
+{% extends 'partials/base.html'%}
+{% load static%}
+{% block title %} UndergradSpace || Dashboard {% endblock %}
+{% load crispy_forms_tags %}
+{% block content%}
+<div class="main-content">
+    <div class="row ug-blue-bg-op rounded">
+        <div class="h4 text-white d-flex justify-between">
+            <span>Recently added</span>
+        </div>
+        {% for limit in limits %}
+        <div class="col-lg-3 col-md-6 col-sm-6" >
+            <div class="card card-stats hover-card rounded-lg rounded">
+                <div class="card-header">
+                    <i class="bi bi-filetype-pdf h4" style="color: red;"></i>
+                    <!-- <i class="bi bi-file-earmark-pdf-fill h4" style="color: red;"></i> -->
+                </div>
+                <div class="card-content">
+                    <p class="category"><strong>{{limit.title}}</strong></p>
+                    <h6 class="card-title grayer-text" style="font-size: 12px;">{{limit.date}}</h6>
+                </div>
+                <div class="card-footer">
+                    <div class="stats ">
+                        <i class="bi bi-file-earmark-arrow-down-fill h5"></i>
+                        <!-- <i class="bi bi-info-circle-fill "></i> -->
+                        <a href="{{limit.pdf.url}}" target="_blank" class="text-info">Download Report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    
+    </div>          
+        <div class="row ">
+            <div class="col-lg-7 col-md-12">
+                <div class="card shadow">
+                    <div class="card-header">Report Statistics</div>
+                    <div class="card-body">
+                        <div>
+                            <canvas id="myChart" width="100" height="50" style="display: block; box-sizing: border-box; height: 50px; width: 100px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <div class="card" style="min-height: 485px">
+                    <div class="card-header card-header-text ">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title">Recent Reports ({{total_data}})</h4>
+                            <a href="{% url 'upload-page' %}"><i class="bi bi-folder-plus h4 mx-2"></i>Upload report</a>
+                        </div>          
+                    </div>
+                    <div class="card-content">
+                        <div class="streamline">
+                            {% for report in reports %}
+                            <div class="sl-item sl-primary">
+                                <div class="sl-content border border-black rounded p-2">
+                                    <a class="" href="{{report.pdf.url}}" target="_blank">{{report.title}}</a>
+                                    <span class="d-flex justify-content-between">
+                                    {% if report.cover%}
+                                                <img src="{{ report.cover.url }}" style="width: 40px;height: 40px;" alt="{{report.title}}">
+                                            {% else %}
+                                                <img src="{% static '/images/img/pdf.png' %}" style="width: 40px;height: 40px;" alt="{{report.title}}">
+                                    {% endif%}
+                                    <small class="text-muted d-flex justify-content-end mt-auto">{{report.date}}</small>
+                                    </span>  
+                                    <span class="d-flex justify-content-between mt-3">
+                                        <a href="{{report.pdf.url}}" target="_blank"  class="btn btn-outline-dark ">Download</a>
+                                        <a href="{% url 'delete-page' report.pk %}" class="btn btn-outline-danger">delete</a>
+                                        <a href="{% url 'edit-page' report.pk %}" class="btn btn-outline-info">edit</a>
+                                    </span>  
+                                    </p>
+                                </div>
+                            </div>                  
+                            {% endfor %}
+                            
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+          
+        <!--Footer-->        
+        <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <nav class="d-flex">
+                        <ul class="m-0 p-0">
+                            <li>
+                                <a href="#">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    UG UndergradSpace
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'account-logOut' %}">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                
+                </div>
+                <div class="col-md-6">
+                    <p class="copyright d-flex justify-content-end"> &copy 2021 Design by: 
+                        <a href="# mx-2">De-General Moz</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+{%endblock%}

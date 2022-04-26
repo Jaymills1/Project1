@@ -1,0 +1,61 @@
+{% extends 'partials/base.html'%}
+{% load static%}
+{% block title %} UndergradSpace || Delete {% endblock %}
+{% load crispy_forms_tags %}
+{% block content%}
+<div class="main-content container my-4" style="padding-bottom: 20%;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Delete Report
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-danger"> 
+                        Are you sure you want to delete?
+                    </div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <a class="btn btn-secondary btn-sm" href="{% url 'dashboard-page' %}">No</a>
+                        <input class="btn btn-danger btn-sm" type="submit" value="Yes">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer-->        
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <nav class="d-flex">
+                    <ul class="m-0 p-0">
+                        <li>
+                            <a href="{% url 'dashboard-page' %}">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                UG UndergradSpace
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'account-logOut' %}">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            
+            </div>
+            <div class="col-md-6">
+                <p class="copyright d-flex justify-content-end"> &copy 2021 Design by
+                    <a href="# mx-2">De-General Moz</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+{%endblock%}

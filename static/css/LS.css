@@ -1,0 +1,236 @@
+body{
+    overflow-x: hidden;
+    background: rgba(0,0,0,0.3);
+}
+
+.login-area{
+    box-shadow: 3px darkslategrey;
+    display: flex;
+    justify-content: center;
+  }
+.button-box
+{
+	display: flex;
+	width:50%;
+	margin:35px auto;
+	position:relative;
+	box-shadow: 0 0 20px 9px #ff61241f;
+	border-radius: 30px;
+}
+.toggle-btn
+{	
+	padding:10px 25px;
+	cursor:pointer;
+	background:transparent;
+	border:0;
+	outline: none;
+	position: relative;
+	font-size: 17px;
+  font-weight: bold;
+}
+#cover
+{
+	top: 0;
+	left:0;
+	position: absolute;
+	width: 110px;
+	height: 100%;
+	background: rgba(236, 204, 23, 0.973);
+	border-radius: 30px;
+	transition: .5s;
+}
+#cover-right
+{
+	top: 0;
+	left:100px;
+	position: absolute;
+	width: 150px;
+	height: 100%;
+	background: rgba(255, 224, 168, 0.973);
+	border-radius: 30px;
+	transition: .5s;
+}
+.round-field{
+    border-radius: 20px;
+    padding: 10px;
+}
+.center{
+    margin-top: 10%;
+    width: 430px;
+    height: 480px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 1px 2px rgba(0, 0, 0, 0.363);
+    border: 2px solid white;
+  }
+  #center-s{
+    height: 550px;
+  }
+  .center h1{
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid white;
+  }
+  .center form{
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+  form .txt_field{
+    position: relative;
+    border-bottom: 2px solid white;
+    margin: 30px 0;
+  }
+  .txt_field input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  .txt_field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: white;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+  }
+  .txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: rgba(248, 244, 6, 0.973);
+    transition: .5s;
+  }
+  .txt_field input:focus ~ label,
+  .txt_field input:valid ~ label{
+    top: -5px;
+    color: rgba(255, 255, 255, 0.623);
+  }
+  .txt_field input:focus ~ span::before,
+  .txt_field input:valid ~ span::before{
+    width: 100%;
+  }
+  .pass{
+    margin: -5px 0 20px 5px;
+    color: white;
+    cursor: pointer;
+  }
+  .pass:hover{
+    text-decoration: underline;
+  }
+  input[type="submit"]{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: rgba(236, 204, 23, 0.973);
+    border-radius: 25px;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+  }
+  input[type="submit"]:hover{
+    border-color: rgba(247, 243, 10, 0.801);
+    background-color: rgba(236, 204, 23, 0.87);
+    transition: .25s;
+  }
+  .err-msg{
+    text-align: center;
+    color: rgba(216, 25, 25, 0.925);
+    font-weight: 700;
+    font-size: large;
+  }
+  .signup_link{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+  }
+  .signup_link a{
+    color: #2691d9;
+    text-decoration: none;
+  }
+  .signup_link a:hover{
+    text-decoration: underline;
+  }
+  .pass:hover{
+    color: darkgrey;
+  }
+  
+  .content {
+    position: relative;
+  }
+  
+  .content h2 {
+    color: #fff;
+    font-size: 4em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+  
+  .content h2:nth-child(1) {
+    color: transparent;
+    -webkit-text-stroke: 2px #03a9f4;
+  }
+  
+  .content h2:nth-child(2) {
+    color: #03a9f4;
+    animation: animate 4s ease-in-out infinite;
+  }
+  
+  .brand-text-p{
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    display: inline-block;
+    border: 4px double rgba(255, 255, 255, 0.945);
+    border-width: 4px 0;
+    padding: 8px 0;
+    position: absolute;
+    top: 1%;
+    left: 40%;
+    width: 60em;
+    margin: 20px 0 0 -20em;
+  }
+
+    .brand-text-span {
+      font: 900 "Oswald", sans-serif;
+      letter-spacing: 0;
+      padding: 10px 0 4px;
+      display: block;
+      margin: 0 auto;
+      font-size: 50px;
+      font-weight: 700;
+      text-shadow: 0 0 80px rgba(255,255,255,.5);
+  
+  /* Clip Background Image */
+  
+      background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+      -webkit-background-clip: text;
+      background-clip: text;
+  
+  /* Animate Background Image */
+  
+      -webkit-text-fill-color: transparent;
+      -webkit-animation: aitf 80s linear infinite;
+  
+  /* Activate hardware acceleration for smoother animations */
+  
+      -webkit-transform: translate3d(0,0,0);
+      -webkit-backface-visibility: hidden;
+  
+    }
+  
+  /* Animate Background Image */
+  
+  @-webkit-keyframes aitf {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
