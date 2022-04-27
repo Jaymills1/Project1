@@ -3,9 +3,10 @@ from . decorators import unauthenticated_user,allowed_users
 from django.contrib.auth.decorators import login_required
 from dashboard.models import Report
 from dashboard.froms import UpdateViewForm
+
 # Create your views here.
 @allowed_users(allowed_roles=['student'])
-# @login_required(login_url='login')
+@login_required(login_url='login')
 def userPage(request):
     reports = Report.objects.all().order_by('-date')
     context ={
@@ -13,7 +14,7 @@ def userPage(request):
     }
     return render(request, 'users/userPage.html',context)
 
-
+@login_required(login_url='login')
 def details(request,pk):
     report = Report.objects.get(pk=pk)
 

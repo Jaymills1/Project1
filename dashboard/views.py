@@ -49,12 +49,12 @@ def upload(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         author = request.POST.get('author')
-        discription = request.POST.get('discription')
+        description = request.POST.get('description')
         pdf = request.POST.get('pdf')
         files = {
             'title':title,
             'author':author,
-            'discription':discription,
+            'description':description,
             'pdf':pdf,
         }
         form = ReportForm(files, request.FILES)

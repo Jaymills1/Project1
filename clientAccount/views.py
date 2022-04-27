@@ -45,6 +45,7 @@ def signUp(request):
             return redirect('login')
         else:
             messages.warning(request,str(form.errors))
+            print(messages.error)
             return redirect('account-signUp')
     
     context= { 
@@ -80,10 +81,7 @@ def logOut(request):
     logout(request)
     return redirect('login')
 
-# @login_required(login_url='account-logIn')
-# @allowed_users(allowed_roles=['admin'])
-# def dashboard(request):
-#     return render(request, 'dashboard/dashboard.html')
+
 
 
 def index(request):

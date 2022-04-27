@@ -593,7 +593,7 @@ footer .copyright {
 @media only screen and (min-width:992px){
 	#sidebar.active {
     width:80px;
-	height:100%!important;
+	height:123vh!important;
 	position:absolute!important;
 	overflow:visible!important;
 	top:0!important;

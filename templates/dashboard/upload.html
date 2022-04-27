@@ -134,9 +134,9 @@
                         </div>
                         <p>Select your image cover</p>
                         {{form.cover}}
-                        <p class="my-1">Add an optional description or a short note for your lecturer:</p>
+                        <p class="my-1">Add description or a short note for your lecturer:</p>
                         <div class="form-floating col-8">
-                         <textarea class="form-control" name="discription" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                         <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                          <label for="floatingTextarea2">Description</label>
                         </div>
                         <div class="my-3">
@@ -149,10 +149,10 @@
       </div>
                           <!--Footer-->        
                 <footer class="footer">
-                    <div class="container-fluid">
+                    <div class="container">
                         <div class="row">
                             <div class="col-md-6">
-                                <nav class="d-flex">
+                                <nav class="d-flex justify-content-center">
                                     <ul class="m-0 p-0">
                                         <li>
                                             <a href="{% url 'dashboard-page' %}">

@@ -1,98 +1,6 @@
-<!-- <p>SignUp Page</p>
-
-<form method="POST">
-    {% csrf_token %} 
-    {{form.username.label}}
-    {{form.username}}
-
-    {{form.email.label}}
-    {{form.email}}
-
-    {{form.password1.label}}
-    {{form.password1}}
-
-    {{form.password2.label}}
-    {{form.password2}}
-    <input type="submit" value="Create User">
-</form> 
- {{form.errors}} -->
-
- <!-- {% for message in messages %}
- <p>{{message}}</p>
- {% endfor %}
- 
- <form method="POST">
-     {% csrf_token %} 
-     <label for="username">username</label>
-     <input type="text" name="username" placeholder="Username...">
-     <label for="email">email</label>
-     <input type="email" name="email" placeholder="Username...">
-     <label for="password1">password</label>
-     <input type="password" name="password1" placeholder="Password..."  >
-     <label for="password2">Comfirm password</label>
-     <input type="password" name="password2" placeholder="Password..."  >
-     <input type="submit" value="Login">
- </form>
-  -->
-
-  
 
   {% load static%}
-  <!-- <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
-      <link rel="stylesheet" href="{% static '/css/styles.css' %}">
-  </head>
-  <style>
-    .full-page{
-        height: 100%;
-	width: 100%;
-	background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("{% static '/images/bgorgaanize.jpg' %}");
-	background-position: center;
-	background-size: cover;
-	position: absolute;}
-  </style>
-  <body>
-      <div class="full-page">
-        <div class="navbar">
-            <div>
-                <a href='website.html' class="text-decoration-none text-white">UG u-space</a>
-            </div>
-        </div>
-        <div class="form-box">
-            <div class='button-box'>
-                <div id='cover'></div>
-                </div>
-            <form id='login' class='input-group-login' method="POST"  autocomplete="off">
-                {% csrf_token %}
-                <input type='text'class='input-field'placeholder='Username' name="username" required>
-                <input type='email'class='input-field' placeholder='Email' name="email" required>
-               <input type='password'class='input-field'placeholder='Enter Password' name="password1" autocomplete="new-password" required>
-               <input type='password'class='input-field'placeholder='Confirm Password' name="password2" required>
-                <button type='submit'class='submit-btn'>Register</button>
-                
-                {% for message in messages %}
-                <p style="color: #fff">{{message}}</p>
-                {% endfor %}
-            </form>
-        </div>
-      </div>
-  </body>
-
-  <script>
-      function register(){
-          window.location = 'logIn/';
-      }
-  </script>
-  </html>
-  -->
-
-
-
-  
+ 
   <!doctype html>
   <html lang="en">
     <head>
@@ -108,7 +16,7 @@
         .full-page{
           height: 140vh;
           width: 100%;
-          background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0, 0, 0, 0.4)),url("{% static '/images/img/login.jpg' %}");
+          background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0, 0, 0, 0.4)),url("{% static '/images/img/Login2.png' %}");
           background-position: center;
           background-size: cover;
           position: absolute;

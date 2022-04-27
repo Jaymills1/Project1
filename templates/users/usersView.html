@@ -58,7 +58,8 @@
             </div>
           </div>
           <div class="container">
-            <h4>{{report.title}}</h4>
+            
+            <h4>Title: {{report.title}}</h4>
             <h4 class="mt-3">Document Cover</h4>
             {% if report.cover%}
             <p><img src="{{ report.cover.url }}" id="output" width="120px" height="100px"/></p>
@@ -69,7 +70,7 @@
             <p class="mx-3" style="margin-top: 50px;">This report comes with the following description.</p>
             <div class="form-floating col-8">
                  <h4 class="mx-3">Description</h4>
-                <textarea class="form-control" style="height: auto;">{{report.discription}}</textarea>
+                <textarea class="form-control" style="height: auto;">{{report.description}}</textarea>
             </div>
             <div class="my-3">
                 <div>

@@ -4,7 +4,7 @@ from django.db import models
 class Report(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
-    discription = models.CharField(max_length=500)
+    description = models.CharField(max_length=500)
     pdf = models.FileField(upload_to='reports/pdfs/')
     date = models.DateTimeField(auto_now_add=True)
     cover = models.ImageField(upload_to='reports/covers/', null=True, blank=True)

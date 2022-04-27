@@ -212,14 +212,14 @@ body{
   
   /* Clip Background Image */
   
-      background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+      background: url('../images/img/login3.png') repeat-y;
       -webkit-background-clip: text;
       background-clip: text;
   
   /* Animate Background Image */
   
       -webkit-text-fill-color: transparent;
-      -webkit-animation: aitf 80s linear infinite;
+      -webkit-animation: aitf 5s linear infinite;
   
   /* Activate hardware acceleration for smoother animations */
   
