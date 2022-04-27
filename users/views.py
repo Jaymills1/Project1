@@ -5,6 +5,7 @@ from dashboard.models import Report
 from dashboard.froms import UpdateViewForm
 
 # Create your views here.
+
 @allowed_users(allowed_roles=['student'])
 @login_required(login_url='login')
 def userPage(request):
@@ -14,6 +15,7 @@ def userPage(request):
     }
     return render(request, 'users/userPage.html',context)
 
+@allowed_users(allowed_roles=['student'])
 @login_required(login_url='login')
 def details(request,pk):
     report = Report.objects.get(pk=pk)

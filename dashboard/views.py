@@ -9,10 +9,8 @@ from .models import Report
 from django.contrib.auth.models import User, Group
 # Create your views here.
 
-# @unauthenticated_user
-# @admin_only
-# @login_required(login_url='login')
-# @unauthenticated_user
+
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
 def dashboard(request):
     if request.user.is_authenticated:
@@ -41,7 +39,8 @@ def dashboard(request):
     else:
         return redirect('login')
 
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def upload(request):
     
     students =User.objects.filter(groups__name__in=['student'])
@@ -70,7 +69,8 @@ def upload(request):
         }
     return render(request, 'dashboard/upload.html',context)
 
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def edit(request,pk):
     report = Report.objects.get(pk=pk)
     students =User.objects.filter(groups__name__in=['student'])
@@ -90,6 +90,8 @@ def edit(request,pk):
     }
     return render(request, 'dashboard/edit.html',context)
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def delete(request,pk):
     students =User.objects.filter(groups__name__in=['student'])
     NStudents =students.count()
@@ -103,7 +105,8 @@ def delete(request,pk):
     }
     return render(request, 'dashboard/delete.html',context)
 
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def allStudents(request):
     # ty =Group.objects.order_by('students')
     students =User.objects.filter(groups__name__in=['student'])
@@ -114,6 +117,7 @@ def allStudents(request):
     }
     return render(request, 'dashboard/all_students.html',context)
 
+@allowed_users(allowed_roles=['admin'])
 @login_required(login_url='login')
 def allReports(request):
     reports = Report.objects.all().order_by('-date')

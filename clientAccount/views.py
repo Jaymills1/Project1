@@ -38,14 +38,11 @@ def signUp(request):
 
             group = Group.objects.get(name='student')
             user.groups.add(group)
-            # if Group.objects.get('name') == 'student':
-            #     return redirect('user-page')
 
             messages.success(request, 'Account for '+username+' has been created successfully')
             return redirect('login')
         else:
             messages.warning(request,str(form.errors))
-            print(messages.error)
             return redirect('account-signUp')
     
     context= { 
@@ -81,7 +78,11 @@ def logOut(request):
     logout(request)
     return redirect('login')
 
-
+def forGetpass(request):
+    mess=''
+    if request.method == 'POST':
+        mess="Please visit the administrator in your department for clarification and verification. Thank You"
+    return render(request, "account/forgetpass.html",{'mess':mess})
 
 
 def index(request):
